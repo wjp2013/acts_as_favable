@@ -36,6 +36,10 @@ module Acts #:nodoc:
       def add_favorite(favorite)
         favorites << favorite
       end
+      
+      def favorited_by_user?(user)
+        !favorites.where("user_id = ?", user.id).size.zero?
+      end
     end
     
   end
